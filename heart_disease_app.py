@@ -5,7 +5,7 @@ import pickle
 from flask import Flask, request, render_template
 
 # Load ML model
-model = pickle.load(open('modelsv.pkl', 'rb')) 
+model = pickle.load(open('modelgb.pkl', 'rb')) 
 
 # Create application
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Bind home function to URL
 @app.route('/')
 def home():
-    return render_template('Heart Disease Classifier.html')
+    return render_template('index.html')
 
 # Bind predict function to URL
 @app.route('/predict', methods =['POST'])

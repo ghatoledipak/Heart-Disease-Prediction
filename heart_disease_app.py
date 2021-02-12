@@ -15,9 +15,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('KNN.html')
+    return render_template('index.html')
 
 # Bind predict function to URL
+@app.route('/showknn')
+def showknn():
+    return render_template('KNN.html')
+
+
+@app.route('/showgb')
+def showgb():
+    return render_template('Heart Disease Classifier.html')
+
+
+@app.route('/showrf')
+def showrf():
+    return render_template('Random_Forest.html')
+
 
 
 @app.route('/predictgb', methods=['POST'])

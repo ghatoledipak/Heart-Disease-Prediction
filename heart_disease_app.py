@@ -18,6 +18,8 @@ def home():
     return render_template('index.html')
 
 # Bind predict function to URL
+
+
 @app.route('/showknn')
 def showknn():
     return render_template('KNN.html')
@@ -33,7 +35,6 @@ def showrf():
     return render_template('Random_Forest.html')
 
 
-
 @app.route('/predictgb', methods=['POST'])
 def predictgb():
 
@@ -44,15 +45,21 @@ def predictgb():
     # Predict features
     prediction = modelgb.predict(array_features)
 
+    x = modelgb.predict_proba(array_features)
+    pos = x[0][1]
+    pos = pos*100
+
+    # neg = x[0][0]
+
     output = prediction
 
     # Check the output values and retrive the result with html tag based on the value
     if output == 1:
         return render_template('Heart Disease Classifier.html',
-                               result='The patient is not likely to have heart disease!')
+                               result='Probablity of having heart disease: ', positive=pos)
     else:
         return render_template('Heart Disease Classifier.html',
-                               result='The patient is likely to have heart disease!')
+                               result='Probablity of having heart disease: ', positive=pos)
 
 
 @app.route('/predictrf', methods=['POST'])
@@ -67,13 +74,21 @@ def predictrf():
 
     output = prediction
 
+    x = modelrf.predict_proba(array_features)
+    pos = x[0][1]
+    pos = pos*100
+
+    # neg = x[0][0]
+
+    output = prediction
+
     # Check the output values and retrive the result with html tag based on the value
     if output == 1:
-        return render_template('Random_Forest.html',
-                               result='The patient is not likely to have heart disease!')
+        return render_template('Heart Disease Classifier.html',
+                               result='Probablity of having heart disease: ', positive=pos)
     else:
-        return render_template('Random_Forest.html',
-                               result='The patient is likely to have heart disease!')
+        return render_template('Heart Disease Classifier.html',
+                               result='Probablity of having heart disease: ', positive=pos)
 
 
 @app.route('/predictknn', methods=['POST'])
@@ -88,13 +103,21 @@ def predictknn():
 
     output = prediction
 
+    x = modelknn.predict_proba(array_features)
+    pos = x[0][1]
+    pos = pos*100
+
+    # neg = x[0][0]
+
+    output = prediction
+
     # Check the output values and retrive the result with html tag based on the value
     if output == 1:
-        return render_template('KNN.html',
-                               result='The patient is not likely to have heart disease!')
+        return render_template('Heart Disease Classifier.html',
+                               result='Probablity of having heart disease: ', positive=pos)
     else:
-        return render_template('KNN.html',
-                               result='The patient is likely to have heart disease!')
+        return render_template('Heart Disease Classifier.html',
+                               result='Probablity of having heart disease: ', positive=pos)
 
 
 if __name__ == '__main__':

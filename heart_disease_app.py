@@ -54,12 +54,15 @@ def predictgb():
     output = prediction
 
     # Check the output values and retrive the result with html tag based on the value
-    if output == 1:
+    if pos > 70:
         return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is HIGH')
+    if pos > 40:
+        return render_template('Heart Disease Classifier.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is MEDIUM')
     else:
         return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is LOW')
 
 
 @app.route('/predictrf', methods=['POST'])
@@ -83,12 +86,15 @@ def predictrf():
     output = prediction
 
     # Check the output values and retrive the result with html tag based on the value
-    if output == 1:
-        return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+    if pos > 70:
+        return render_template('Random_Forest.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is HIGH')
+    if pos > 40:
+        return render_template('Random_Forest.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is MEDIUM')
     else:
-        return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+        return render_template('Random_Forest.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is LOW')
 
 
 @app.route('/predictknn', methods=['POST'])
@@ -112,12 +118,15 @@ def predictknn():
     output = prediction
 
     # Check the output values and retrive the result with html tag based on the value
-    if output == 1:
-        return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+    if pos > 70:
+        return render_template('KNN.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is HIGH')
+    if pos > 40:
+        return render_template('KNN.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is MEDIUM')
     else:
-        return render_template('Heart Disease Classifier.html',
-                               result='Probablity of having heart disease: ', positive=pos)
+        return render_template('KNN.html',
+                               result='Probablity of having heart disease: ', positive=pos, res2='Risk is LOW')
 
 
 if __name__ == '__main__':

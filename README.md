@@ -13,12 +13,12 @@ This repository contains a flask application which will detect the presence of h
 
 <h2> User Interface Snapshots </h2>
 
-![alt text](https://github.com/JayeshShelar/Heart-Disease-Prediction-KNN/blob/main/assets/images/UI_SS_1.jpg)
+![alt text](https://github.com/ghatoledipak/Fruit-Identifier-Using-CNN/blob/main/assets/images/UI_SS_1.png)
 
 <br>
 
-![alt text](https://github.com/JayeshShelar/Heart-Disease-Prediction-KNN/blob/main/assets/images/UI_SS_2.jpg)
+![alt text](https://github.com/ghatoledipak/Fruit-Identifier-Using-CNN/blob/main/assets/images/UI_SS_2.png)
 
 <br>
 
-![alt text](https://github.com/JayeshShelar/Heart-Disease-Prediction-KNN/blob/main/assets/images/UI_SS_3.jpg)
+
